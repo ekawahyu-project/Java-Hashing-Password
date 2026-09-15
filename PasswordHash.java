@@ -1,8 +1,11 @@
 import java.security.*;
+import java.util.*;
 
 public class PasswordHash {
     public static void main(String[] args) {
-        String passwordGwah = "ekawahyu123";
+        Scanner in = new Scanner(System.in);
+        System.out.print("Masukkan Password     : ");
+        String passwordGwah = in.nextLine();
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] encodedhash = digest.digest(passwordGwah.getBytes());
@@ -14,8 +17,8 @@ public class PasswordHash {
                 }
                 hexString.append(hex);
             }
-            System.out.println("My Password GWah : " + passwordGwah);
-            System.out.println("Hasil Hashing    : " + hexString );
+            System.out.println("My Password Asli GWah : " + passwordGwah);
+            System.out.println("Hasil Hashing         : " + hexString );
 
         } catch (NoSuchAlgorithmException e){
             System.out.println("Algorithm not found...");
